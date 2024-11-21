@@ -1,0 +1,19 @@
+{% include 'components/header.html' with title='Projetos DITEC' %}
+
+<body class="d-flex flex-column" style="height: 100vh; margin: 0;">
+    {% include 'components/navbar.html' %}
+
+    <div class="container flex-grow-1 d-flex flex-column justify-content-start">
+        <!-- Botões de controle -->
+        <div class="btn-container"> <!-- Ajuste de margem superior -->
+            {% include 'components/button.html' with text='Entradas' text2='Cadastrar' url='/cad_tarefa/' %}
+            {% include 'components/button.html' with text='Dashboard' text2='Ver' url='/ver_projetos/' %}
+            {% include 'components/button.html' with text='Gastos' text2='Cadastrar' url='/cad_tarefa_equipe/' %}
+        </div>
+    </div>
+
+    {% include 'components/footer.html' %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
