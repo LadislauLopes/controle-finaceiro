@@ -1,11 +1,59 @@
-{% include 'components/header.html' with title='Projetos DITEC' %}
+{% include 'components/header.html' with title='Finanças Ladislau' %}
 {% load static %}
 <body class="d-flex flex-column" style="height: 100vh; margin: 0;">
     {% comment %} {% include 'components/navbar.html' %} {% endcomment %}
     {% include 'components/sidebar.html' %}
-    <div class="container flex-grow-1 d-flex flex-column justify-content-start">
-
+    <div class="container ">
+        <div class='card-info'>
+            <h2 class='text-card-info'> Total em conta</h2>
+            <h2 class='value-card-info'> R$ 300,00</h2>
+        </div>
+        <div class='card-info'>
+            <h2 class='text-card-info'> Fatura</h2>
+            <h2 class='value-card-info'> R$ 450,00</h2>
+        </div>
+        <div class='card-info'>
+            <h2 class='text-card-info'> Fundo de Emergência </h2>
+            <h2 class='value-card-info'> R$ 300,00</h2>
+        </div>
+        <div class='card-info'>
+            <h2 class='text-card-info'> Investimentos</h2>
+            <h2 class='value-card-info'> R$ 250,00</h2>
+        </div>
+        <div class='card-info'>
+            <h2 class='text-card-info'> Limite usado</h2>
+            <h2 class='value-card-info'> R$ 4500,00</h2>
+        </div>
+        <div class="card-info">
+        <h2 class="text-card-info">Filtros</h2>
+        <div class="dropdown">
+            <button class="dropdown-button">Selecione as contas</button>
+            <div class="dropdown-content">
+            <label>
+                <input type="checkbox" name="contas" value="Todos" />
+                Todos
+            </label>
+            <label>
+                <input type="checkbox" name="contas" value="Nubank Ladislau" />
+                Nubank Ladislau
+            </label>
+            <label>
+                <input type="checkbox" name="contas" value="BB Ladislau" />
+                BB Ladislau
+            </label>
+            <label>
+                <input type="checkbox" name="contas" value="Nubank Rafaela" />
+                Nubank Rafaela
+            </label>
+            <label>
+                <input type="checkbox" name="contas" value="BB Rafaela" />
+                BB Rafaela
+            </label>
+            </div>
+        </div>
+        </div>     
     </div>
+    
 
     {% comment %} {% include 'components/footer.html' %} {% endcomment %}
 

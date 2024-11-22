@@ -1,0 +1,53 @@
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%; /* Ajusta ao tamanho do card */
+}
+
+.dropdown-button {
+  width: 90%;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: 1px solid #9b9999;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.dropdown-button::after {
+  /* content: " ▼"; */
+  float: right;
+}
+
+.dropdown-content {
+  display: none; /* Oculta o menu inicialmente */
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  z-index: 1;
+  padding: 10px;
+  max-height: 150px;
+  overflow-y: auto; /* Adiciona scroll se necessário */
+  text-align: left;
+}
+
+.dropdown-content label {
+  display: block;
+  padding: 5px 0;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dropdown-content input {
+  margin-right: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block; 
+}

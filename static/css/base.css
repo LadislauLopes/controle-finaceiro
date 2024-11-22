@@ -10,59 +10,43 @@ body {
   flex-direction: column;
 }
 
-/* Estilos personalizados para o menu e footer */
-.navbar, footer {
-  background-color: #3F4340 !important; /* Cor do fundo */
-  padding: 2rem 0; /* Aumenta a altura da barra de navegação */
-}
 
-.nav-link {
-  font-weight: 500; /* Aumenta a espessura da fonte */
-  color: white; /* Cor do texto */
-  transition: color 0.3s; /* Transição suave para a cor */
-}
-
-.nav-link:hover {
-  color: #f8f9fa; /* Cor do texto ao passar o mouse */
-  text-decoration: underline; /* Sublinha o texto ao passar o mouse */
-  cursor: pointer;
-}
 
 
 .content {
-    margin-top: 30px;
-    margin-bottom: 10px;
-    padding: 20px;
     height: calc(100vh - 180px);
     overflow-y: auto;
     scrollbar-width: none;
 }
-/* Estilos do footer */
-footer {
-  padding: 10px 0; /* Ajuste o padding conforme necessário */
-  background-color: #9811AD; /* Cor de fundo */
-  color: white;
-  text-align: center;
-}
 
-.footer-text {
-  color: #fff;
-}
 
-footer a {
-  color: #fff;
-  text-decoration: none;
-}
-
-/* Estilos para o box */
 .container {
+  display: flex;
   text-align: center;
-  margin-top: 20rem;
-  margin-bottom: 25px;
+  margin-top: 3rem;
+  gap: 1rem;
 }
 
-.container h4 {
-  margin-bottom: -10px;
-  margin-top: -8px;
+.card-info{
+  width: 14rem;
+  height: 10rem;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10%;
+  display: flex; 
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
 }
 
+.text-card-info {
+  padding:  2%;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.value-card-info{
+  margin-top: -3px;
+  font-size: 2.5rem;
+} 
