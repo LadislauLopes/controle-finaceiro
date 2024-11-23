@@ -1,0 +1,59 @@
+{% include 'components/header.html' with title='Finanças Ladislau' %}
+{% load static %}
+<body class="d-flex flex-column" style="height: 100vh; margin: 0;">
+    {% comment %} {% include 'components/navbar.html' %} {% endcomment %}
+    {% include 'components/sidebar.html' %}
+
+    <div class="container mt-4">
+        <h1>Adicionar uma nova Entrada</h1>
+
+        <!-- Formulário para Adicionar Entrada -->
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_titulo" class="form-label">Título</label>
+                {{ form.titulo }}
+            </div>
+            <div class="mb-3">
+                <label for="id_valor" class="form-label">Valor</label>
+                {{ form.valor }}
+            </div>
+            <div class="mb-3">
+                <label for="id_data" class="form-label">Data</label>
+                {{ form.data }}
+            </div>
+            <div class="mb-3">
+                <label for="id_conta" class="form-label">Conta</label>
+                {{ form.conta }}
+            </div>
+            <div class="mb-3">
+                <label for="id_categoria" class="form-label">Categoria</label>
+                {{ form.categoria }}
+            </div>
+            <div class="mb-3">
+                <label for="id_tipo" class="form-label">Tipo</label>
+                {{ form.tipo }}
+            </div>
+            <div class="mb-3">
+                <label for="id_parcelas" class="form-label">Parcelas</label>
+                {{ form.parcelas }}
+            </div>
+            <div class="mb-3">
+                <label for="id_valor_parcelas" class="form-label">Valor das Parcelas</label>
+                {{ form.valor_parcelas }}
+            </div>
+            <div class="mb-3">
+                <label for="id_fixo" class="form-label">Fixo</label>
+                {{ form.fixo }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Adicionar Entrada</button>
+        </form>
+    </div>
+
+    {% comment %} {% include 'components/footer.html' %} {% endcomment %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="{% static 'js/sidebar.js' %}"></script>
+</body>
+</html>

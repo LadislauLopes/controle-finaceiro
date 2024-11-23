@@ -37,21 +37,10 @@ class MovimentacaoConta(models.Model):
     conta = models.ForeignKey('Conta', on_delete=models.CASCADE)
     categoria = models.ForeignKey('Categoria', on_delete=models.CASCADE)
     tipo = models.CharField(max_length=20, choices=TIPO_CHOICES)
-    
-    # Campos específicos para cada tipo de movimentação
-    origem_ou_motivo = models.CharField(max_length=255, blank=True, null=True)  # Exemplo: "Salário", "Aluguel"
-    parcelas = models.PositiveSmallIntegerField(null=True, blank=True)  # Apenas para crédito
-    saldo_disponivel = models.DecimalField(max_digits=10, decimal_places=2, default=0, null=True, blank=True)  # Apenas para débito
-    
-    # Campos específicos para PIX
-    chave_pix = models.CharField(max_length=255, blank=True, null=True)  # Chave PIX, se for o tipo PIX
-    banco_pix = models.CharField(max_length=100, blank=True, null=True)  # Banco associado ao PIX, se for o tipo PIX
-
-    # Novo campo para controlar se a dívida foi paga ou não
-    divida_paga = models.BooleanField(default=False)  # False significa que a dívida não foi paga
-    
-    # Campo para registrar a data em que a dívida foi paga (se aplicável)
-    data_pago = models.DateField(null=True, blank=True)  # Caso não tenha sido paga, fica em branco
+    parcelas = models.SmallIntegerField(null=True, blank=True, default=0)  
+    valor_parcelas =  models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, default=0)  
+    fixo= models.BooleanField(default=False)
+    desconto = models.BooleanField(default=False)
 
     def __str__(self):
         return self.titulo
