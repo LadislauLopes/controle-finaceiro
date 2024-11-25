@@ -1,55 +1,107 @@
-{% include 'components/header.html' with title='Finanças Ladislau' %}
+{% include 'components/header.html' with title='Finanças Ladislau' form=True %}
 {% load static %}
 <body class="d-flex flex-column" style="height: 100vh; margin: 0;">
     {% comment %} {% include 'components/navbar.html' %} {% endcomment %}
     {% include 'components/sidebar.html' %}
 
-    <div class="container mt-4">
-        <h1>Adicionar uma nova Entrada</h1>
+<div class="container mt-5 cadastro-box">
+    <h2 class="text-center mb-4">Adicionar uma Nova Entrada</h2>
 
-        <!-- Formulário para Adicionar Entrada -->
-        <form method="POST">
-            {% csrf_token %}
-            <div class="mb-3">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-6 mb-3">
                 <label for="id_titulo" class="form-label">Título</label>
                 {{ form.titulo }}
             </div>
-            <div class="mb-3">
+            <div class="col-md-6 mb-3">
                 <label for="id_valor" class="form-label">Valor</label>
                 {{ form.valor }}
             </div>
-            <div class="mb-3">
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
                 <label for="id_data" class="form-label">Data</label>
                 {{ form.data }}
             </div>
-            <div class="mb-3">
+            <div class="col-md-6 mb-3">
                 <label for="id_conta" class="form-label">Conta</label>
                 {{ form.conta }}
             </div>
-            <div class="mb-3">
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
                 <label for="id_categoria" class="form-label">Categoria</label>
                 {{ form.categoria }}
             </div>
-            <div class="mb-3">
+            <div class="col-md-6 mb-3">
                 <label for="id_tipo" class="form-label">Tipo</label>
                 {{ form.tipo }}
             </div>
-            <div class="mb-3">
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Parcelado</label><br>
+                <input type="radio" id="parcelado_sim" name="parcelado" value="True" {% if form.parcelado.value == 'True' %} checked {% endif %}> Sim
+                <input type="radio" id="parcelado_nao" name="parcelado" value="False" {% if form.parcelado.value == 'False' %} checked {% endif %}> Não
+            </div>
+        </div>
+
+        <div class="row parcelas-fields" style="display:none;">
+            <div class="col-md-6 mb-3">
                 <label for="id_parcelas" class="form-label">Parcelas</label>
                 {{ form.parcelas }}
             </div>
-            <div class="mb-3">
+            <div class="col-md-6 mb-3">
                 <label for="id_valor_parcelas" class="form-label">Valor das Parcelas</label>
                 {{ form.valor_parcelas }}
             </div>
-            <div class="mb-3">
-                <label for="id_fixo" class="form-label">Fixo</label>
-                {{ form.fixo }}
-            </div>
+        </div>
 
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Fixo</label><br>
+                <input type="radio" id="fixo_sim" name="fixo" value="True" {% if form.fixo.value == 'True' %} checked {% endif %}> Sim
+                <input type="radio" id="fixo_nao" name="fixo" value="False" {% if form.fixo.value == 'False' %} checked {% endif %}> Não
+            </div>
+        </div>
+
+        <div class="mb-4 align-items-center">
+            <button type="button" class="btn btn-secondary"
+            onclick="window.location.href='/home_page'">Cancelar</button>
             <button type="submit" class="btn btn-primary">Adicionar Entrada</button>
-        </form>
-    </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Exibe ou oculta os campos de parcelas quando 'Parcelado' for marcado
+    document.querySelectorAll('input[name="parcelado"]').forEach(function(input) {
+        input.addEventListener('change', function() {
+            const parcelasFields = document.querySelector('.parcelas-fields');
+            if (document.getElementById('parcelado_sim').checked) {
+                parcelasFields.style.display = 'block';
+            } else {
+                parcelasFields.style.display = 'none';
+            }
+        });
+    });
+
+    // Inicializa o estado do campo "Parcelas" dependendo do valor de 'parcelado'
+    window.onload = function() {
+        const parcelasFields = document.querySelector('.parcelas-fields');
+        if (document.getElementById('parcelado_sim').checked) {
+            parcelasFields.style.display = 'block';
+        } else {
+            parcelasFields.style.display = 'none';
+        }
+    };
+</script>
+
+
 
     {% comment %} {% include 'components/footer.html' %} {% endcomment %}
 
