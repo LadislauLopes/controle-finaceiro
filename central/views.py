@@ -6,7 +6,7 @@ from .forms import MovimentacaoContaForm, CategoriaForm,PessoaForm
 def index(request):
     return render(request, 'index.html')
 
-def adicionar_entrada(request):
+def adicionar_saida(request):
     if request.method == 'POST':
         form = MovimentacaoContaForm(request.POST)
         if form.is_valid():
@@ -16,7 +16,7 @@ def adicionar_entrada(request):
     else:
         form = MovimentacaoContaForm()
 
-    return render(request, 'adicionar_entrada.html', {'form': form})
+    return render(request, 'adicionar_saida.html', {'form': form})
 
 def adicionar_categoria(request):
     if request.method == 'POST':
