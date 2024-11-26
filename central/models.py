@@ -20,7 +20,7 @@ class Conta(models.Model):
     id_pessoa = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"Conta de {self.id_pessoa.nome}"
+        return f"{self.Banco} de {self.id_pessoa.nome}"
 
 class MovimentacaoConta(models.Model):
     TIPO_CHOICES = [

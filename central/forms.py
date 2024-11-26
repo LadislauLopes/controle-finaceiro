@@ -11,9 +11,10 @@ class MovimentacaoContaForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(MovimentacaoContaForm, self).__init__(*args, **kwargs)
-        # Garantindo que o campo 'desconto' seja definido como False por padrão
+        
+        # Garantindo que o campo 'desconto' tenha valor False por padrão (Não)
         if 'instance' not in kwargs:
-            self.fields['desconto'].initial = True
+            self.fields['desconto'].initial = False  # Desconto inicial como False (Não)
         
         # Garantindo que o campo 'parcelas' tenha um valor inicial de 1
         if 'instance' not in kwargs:
