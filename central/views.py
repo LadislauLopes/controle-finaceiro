@@ -1,6 +1,6 @@
 # central/views.py
 from django.shortcuts import render, redirect
-from .forms import MovimentacaoContaForm
+from .forms import MovimentacaoContaForm, CategoriaForm,PessoaForm
 
 
 def index(request):
@@ -17,3 +17,26 @@ def adicionar_entrada(request):
         form = MovimentacaoContaForm()
 
     return render(request, 'adicionar_entrada.html', {'form': form})
+
+def adicionar_categoria(request):
+    if request.method == 'POST':
+        form = CategoriaForm(request.POST)
+        if form.is_valid():
+          
+            form.save()
+            return redirect('index')
+    else:
+        form = CategoriaForm()
+
+    return render(request, 'adicionar_Categoria.html', {'form': form})
+def adicionar_pessoa(request):
+    if request.method == 'POST':
+        form = PessoaForm(request.POST)
+        if form.is_valid():
+          
+            form.save()
+            return redirect('index')
+    else:
+        form = PessoaForm()
+
+    return render(request, 'adicionar_pessoa.html', {'form': form})

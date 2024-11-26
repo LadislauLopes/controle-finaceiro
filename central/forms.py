@@ -22,3 +22,14 @@ class MovimentacaoContaForm(forms.ModelForm):
         # Garantindo que o campo 'valor_parcelas' tenha valor 0 quando 'parcelado' for False
         if not self.instance.pk or not self.instance.parcelado:
             self.fields['valor_parcelas'].initial = 0
+
+
+class CategoriaForm(forms.ModelForm):
+    class Meta:  
+        model = Categoria
+        fields = ['nome']
+
+class PessoaForm(forms.ModelForm):
+    class Meta:
+        model = Pessoa
+        fields = ['nome']

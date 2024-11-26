@@ -1,0 +1,32 @@
+{% include 'components/header.html' with title='Finanças Ladislau' form=True %}
+{% load static %}
+<body class="d-flex flex-column" style="height: 100vh; margin: 0;">
+    {% comment %} {% include 'components/navbar.html' %} {% endcomment %}
+    {% include 'components/sidebar.html' %}
+
+<div class="container mt-5 cadastro-box">
+    {% comment %} <h2 class="text-center mb-4">Adicionar uma Nova Entrada</h2> {% endcomment %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="id_titulo" class="form-label">Nome da categoria</label>
+                {{ form.nome }}
+            </div>
+  
+
+        <div class="mb-4 align-items-center">
+            <button type="button" class="btn btn-secondary"
+            onclick="window.location.href='/home_page'">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Adicionar Entrada</button>
+        </div>
+    </form>
+</div>
+
+    {% comment %} {% include 'components/footer.html' %} {% endcomment %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="{% static 'js/sidebar.js' %}"></script>
+</body>
+</html>
