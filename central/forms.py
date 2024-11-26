@@ -13,7 +13,7 @@ class MovimentacaoContaForm(forms.ModelForm):
         super(MovimentacaoContaForm, self).__init__(*args, **kwargs)
         # Garantindo que o campo 'desconto' seja definido como False por padrão
         if 'instance' not in kwargs:
-            self.fields['desconto'].initial = False
+            self.fields['desconto'].initial = True
         
         # Garantindo que o campo 'parcelas' tenha um valor inicial de 1
         if 'instance' not in kwargs:
@@ -33,3 +33,13 @@ class PessoaForm(forms.ModelForm):
     class Meta:
         model = Pessoa
         fields = ['nome']
+
+class ContaForm(forms.ModelForm):
+    class Meta:
+        model = Conta
+        fields = ['Banco', 'id_pessoa']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['Banco'].widget.attrs.update({'class': 'form-control'})
+        self.fields['id_pessoa'].widget.attrs.update({'class': 'form-select'})
