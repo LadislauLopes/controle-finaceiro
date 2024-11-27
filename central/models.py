@@ -26,9 +26,10 @@ class MovimentacaoConta(models.Model):
     TIPO_CHOICES = [
         ('CREDITO', 'Crédito'),
         ('DEBITO', 'Débito'),
-        ('DEPOSITO_FIXO', 'Depósito Fixo'),
-        ('DESCONTO_FIXO', 'Desconto Fixo'),
         ('PIX', 'PIX'),
+        ('PAGAMENTO FATURA', 'Pagamento Fatura'),
+        ('Investimento','Investimento'),
+        ('Fundo De Emergência','Fundo De Emergência')
     ]
 
     titulo = models.CharField(max_length=255)
@@ -40,8 +41,8 @@ class MovimentacaoConta(models.Model):
     parcelado =models.BooleanField(default=False)
     parcelas = models.SmallIntegerField(null=True, blank=True, default=1)  
     valor_parcelas =  models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, default=0)  
-    fixo= models.BooleanField(default=False)
     desconto = models.BooleanField(default=False)
+
 
     def __str__(self):
         return self.titulo

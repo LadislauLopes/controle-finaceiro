@@ -4,7 +4,7 @@ from .models import MovimentacaoConta, Conta, Categoria, Pessoa
 class MovimentacaoContaForm(forms.ModelForm):
     class Meta:
         model = MovimentacaoConta
-        fields = ['titulo', 'valor', 'data', 'conta', 'categoria', 'tipo', 'parcelado', 'parcelas', 'valor_parcelas', 'fixo', 'desconto']
+        fields = ['titulo', 'valor', 'data', 'conta', 'categoria', 'tipo', 'parcelado', 'parcelas', 'valor_parcelas', 'desconto']
         widgets = {
             'data': forms.DateInput(attrs={'type': 'date'}),  # Para o campo de data, define um tipo de input de data
         }
@@ -23,6 +23,8 @@ class MovimentacaoContaForm(forms.ModelForm):
         # Garantindo que o campo 'valor_parcelas' tenha valor 0 quando 'parcelado' for False
         if not self.instance.pk or not self.instance.parcelado:
             self.fields['valor_parcelas'].initial = 0
+
+
 
 
 class CategoriaForm(forms.ModelForm):

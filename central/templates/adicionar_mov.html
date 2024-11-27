@@ -61,20 +61,13 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label class="form-label">Fixo</label><br>
-                    <input type="radio" id="fixo_sim" name="fixo" value="True" {% if form.fixo.value == 'True' %} checked {% endif %}> Sim
-                    <input type="radio" id="fixo_nao" name="fixo" value="False" {% if form.fixo.value == 'False' %} checked {% endif %}> Não
-                </div>
-            </div>
 
             <!-- Novo campo para "Desconto" -->
             <div class="row">
                 <div class="col-md-6 mb-3">
-                    <label class="form-label">Desconto</label><br>
-                    <input type="radio" id="desconto_sim" name="desconto" value="True" {% if form.desconto.value == 'True' %} checked {% endif %}> Sim
-                    <input type="radio" id="desconto_nao" name="desconto" value="False" {% if form.desconto.value == 'False' or not form.desconto.value %} checked {% endif %}> Não
+                    <label class="form-label">Tipo De movimentação</label><br>
+                    <input type="radio" id="desconto_nao" name="desconto" value="False" {% if form.desconto.value == 'False' or not form.desconto.value %} checked {% endif %}> Entrada
+                    <input type="radio" id="desconto_sim" name="desconto" value="True" {% if form.desconto.value == 'True' %} checked {% endif %}> Saida
                 </div>
             </div>
 

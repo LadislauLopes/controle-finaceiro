@@ -1,10 +1,19 @@
 # central/views.py
 from django.shortcuts import render, redirect
 from .forms import MovimentacaoContaForm, CategoriaForm,PessoaForm,ContaForm
+from django.db.models import Sum
+from .models import MovimentacaoConta
 
 
 def index(request):
-    return render(request, 'index.html')
+    total_valor = MovimentacaoConta.objects.filter(desconto=False).aggregate(total=Sum('valor'))['total']
+    
+    context = {
+        'total_valor': total_valor
+    }
+    
+    return render(request, 'index.html', context)
+
 
 def adicionar_mov(request):
     if request.method == 'POST':
